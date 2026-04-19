@@ -1,5 +1,6 @@
 const resolveApiBaseUrl = () => {
-  const configured = import.meta.env.VITE_API_BASE_URL;
+  // const configured = import.meta.env.VITE_API_BASE_URL;
+  const configured = "https://lake-smartly-grumpily.ngrok-free.dev";
   if (configured) return configured;
   if (typeof window === "undefined") return "http://localhost:4001";
   const { protocol, hostname, port, origin } = window.location;
