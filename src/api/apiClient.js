@@ -27,7 +27,8 @@ const request = async (path, options = {}) => {
   };
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
-
+  if (String(API_BASE_URL || "").includes("ngrok")) headers["ngrok-skip-browser-warning"] = "true";
+  
   const res = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
     headers,

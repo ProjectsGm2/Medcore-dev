@@ -25,6 +25,10 @@ const app = express();
 app.use(cors({
   origin: true,
   credentials: true,
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "ngrok-skip-browser-warning"],
+  exposedHeaders: ["Content-Length"],
+  optionsSuccessStatus: 204,
 }));
 app.use(express.json({ limit: '200mb' }));
 app.use(express.urlencoded({ limit: '200mb', extended: true }));
